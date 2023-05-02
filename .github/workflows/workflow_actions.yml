@@ -1,8 +1,9 @@
 name: Workflow Actions
 
 on:
-  push:
   workflow_dispatch:
+  push:
+    branches: [main-modification]
 
 jobs:
   build_gui:
