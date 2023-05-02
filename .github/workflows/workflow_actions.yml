@@ -1,19 +1,17 @@
-name: Publish GUI
+name: Workflow Actions
 
 on:
- #push:
- #  branches: [ master ]
+  push:
   workflow_dispatch:
 
 jobs:
-  publish_gui:
-
+  build_gui:
     strategy:
       fail-fast: false
       matrix:
         os: [windows-latest]
-        configuration: [Debug]
-        bundled: [true, false]
+        configuration: [Debug, Release]
+        bundled: [true]
         singlefile: [true, false]
 
     runs-on: ${{ matrix.os }}
@@ -39,8 +37,11 @@ jobs:
         cp ./README.md ./${{ matrix.os }}
         cp ./SCRIPTS.md ./${{ matrix.os }}
         cp ./LICENSE.txt ./${{ matrix.os }}
-    - name: Upload ${{ matrix.os }} GUI
+    - name: Create zip for nightly release Windows GUI
+      run: |
+        7z a -tzip GUI-${{ matrix.os }}-${{ matrix.configuration }}-isBundled-${{ matrix.bundled }}-isSingleFile-${{ matrix.singlefile }}.zip ./${{ matrix.os }}/* -mx0 
+    - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
-        name: GUI-${{ matrix.os }}-isBundled-${{ matrix.bundled }}-isSingleFile-${{ matrix.singlefile }}
-        path: ${{ matrix.os }}
+          name: GUI-${{ matrix.os }}-${{ matrix.configuration }}-isBundled-${{ matrix.bundled }}-isSingleFile-${{ matrix.singlefile }}
+          path: GUI-${{ matrix.os }}-${{ matrix.configuration }}-isBundled-${{ matrix.bundled }}-isSingleFile-${{ matrix.singlefile }}.zip
