@@ -145,8 +145,6 @@ namespace UndertaleModTool
                     UndertaleEmbeddedImage => "Embedded Image",
                     UndertaleSequence => "Sequence",
                     UndertaleAnimationCurve => "Animation Curve",
-                    UndertaleParticleSystem => "Particle System",
-                    UndertaleParticleSystemEmitter => "Particle System Emitter",
                     _ => null
                 };
 
@@ -710,20 +708,6 @@ namespace UndertaleModTool
                                 layer = room.Layers
                                             .FirstOrDefault(l => l.LayerType is LayerType.Assets
                                                 && (l.AssetsData.Sprites?.Any(x => x.Name == spr.Name) ?? false));
-                                objList = roomEditor.LayerItems.ItemContainerGenerator.ContainerFromItem(layer) as TreeViewItem;
-                                break;
-
-                            case ParticleSystemInstance partSys:
-                                if (fromReferencesResults)
-                                {
-                                    roomEditor.LayerItems.IsExpanded = true;
-                                    roomEditor.RoomRootItem.UpdateLayout();
-                                }
-
-                                room = roomEditor.DataContext as UndertaleRoom;
-                                layer = room.Layers
-                                            .FirstOrDefault(l => l.LayerType is LayerType.Assets
-                                                && (l.AssetsData.ParticleSystems?.Any(x => x.Name == partSys.Name) ?? false));
                                 objList = roomEditor.LayerItems.ItemContainerGenerator.ContainerFromItem(layer) as TreeViewItem;
                                 break;
                         }

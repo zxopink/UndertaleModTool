@@ -47,14 +47,6 @@ namespace UndertaleModTool.Windows
                             (typeof(UndertaleTextureGroupInfo), "Texture groups")
                         }
                     },
-                    new TypesForVersion
-                    {
-                        Version = (2023, 2, 0),
-                        Types = new[]
-                        {
-                            (typeof(UndertaleParticleSystemEmitter), "Particle system emitters")
-                        }
-                    }
                 }
             },
             {
@@ -235,16 +227,6 @@ namespace UndertaleModTool.Windows
                         {
                             (typeof(UndertaleSequence.TextKeyframes), "Sequence track text keyframes")
                         }
-                    },
-                    new TypesForVersion
-                    {
-                        Version = (2023, 2, 0),
-                        Types = new[]
-                        {
-                            (typeof(UndertaleParticleSystem), "Particle systems"),
-                            (typeof(UndertaleParticleSystemEmitter), "Particle system emitters"),
-                            (typeof(UndertaleRoom.ParticleSystemInstance), "Room particle system instances")
-                        }
                     }
                 }
             },
@@ -356,35 +338,6 @@ namespace UndertaleModTool.Windows
                         }
                     }
                 }
-            },
-            {
-                typeof(UndertaleParticleSystem),
-                new[]
-                {
-                    new TypesForVersion()
-                    {
-                        Version = (2023, 2, 0),
-                        Types = new[]
-                        {
-                            (typeof(UndertaleRoom.ParticleSystemInstance), "Room particle system instances")
-                        }
-                    }
-                }
-            },
-            {
-                typeof(UndertaleParticleSystemEmitter),
-                new[]
-                {
-                    new TypesForVersion()
-                    {
-                        Version = (2023, 2, 0),
-                        Types = new[]
-                        {
-                            (typeof(UndertaleParticleSystem), "Particle systems"),
-                            (typeof(UndertaleParticleSystemEmitter), "Particle system emitters")
-                        }
-                    }
-                }
             }
         };
 
@@ -401,8 +354,6 @@ namespace UndertaleModTool.Windows
             { typeof(UndertaleVariable), "Variables" },
             { typeof(UndertaleEmbeddedAudio), "Embedded audio" },
             { typeof(UndertaleAudioGroup), "Audio groups" },
-            { typeof(UndertaleParticleSystem), "Particle systems" },
-            { typeof(UndertaleParticleSystemEmitter), "Particle system emitters" }
         };
         
         public static readonly HashSet<Type> CodeTypes = new()
