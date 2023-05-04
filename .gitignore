@@ -333,3 +333,5 @@ Test/Test - Backup.csproj
 UndertaleModLib/UndertaleModLib - Backup.csproj
 UndertaleModTests/UndertaleModTests - Backup.csproj
 UndertaleModLib/gitversion.txt
+*.sublime-project
+*.sublime-workspace
