@@ -7,7 +7,8 @@
     <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
     <RuntimeIdentifiers>win-x64;win-x86</RuntimeIdentifiers>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <NoWarn>$(NoWarn);1591, 1416</NoWarn>
+    <!-- Suppress all missing XML comment warnings -->
+    <NoWarn>1591, 1416</NoWarn>
   </PropertyGroup>
 
 </Project>
