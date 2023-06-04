@@ -27,10 +27,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     
-    - name: Build
-      run: |
-        dotnet build UndertaleModTool --no-restore
-    
     - name: Publish ${{ matrix.os }} GUI
       run: |
         dotnet publish UndertaleModTool -c ${{ matrix.configuration }} -r win-x64 -p:PublishSingleFile=${{ matrix.singlefile }} --output ${{ matrix.os }}
